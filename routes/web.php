@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +29,15 @@ Route::any('/', function()
 {
     return 'Hello World';
 });
+
+
+
 Route::view('/', 'test');
+Route::get('/', 'App\Http\Controllers\ArticlesController@index' );
 Route::view('/contact', 'contact');
+Route::get('/article', function () {
+    return "Article number is ";
+});
+Route::get('/article/{id}', function ($id) {
+    return "Article number is ". $id;
+});
