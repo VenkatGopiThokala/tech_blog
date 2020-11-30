@@ -13,6 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/test', function () {
+   return view('main');
 });
+
+
+
+Route::get('dashboard', function () {
+    return 'welcome to dashboard!';
+});
+
+Route::any('/', function()
+{
+    return 'Hello World';
+});
+Route::view('/', 'test');
+Route::view('/contact', 'contact');
