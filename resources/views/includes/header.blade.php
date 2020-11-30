@@ -429,7 +429,21 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ url('/contact') }}">Contact Us</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/contact') }}">Add category</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/contact') }}">View category</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/contact') }}">Add article</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/contact') }}">View article</a>
+                                </li>
+
                             </ul>
+
                             <ul class="navbar-nav mr-2">
                                 <li class="nav-item">
                                     <a class="nav-link" href="#"><i class="fa fa-rss"></i></a>
