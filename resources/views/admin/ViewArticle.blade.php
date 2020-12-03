@@ -17,9 +17,8 @@
                         <div class="page-wrapper">
                             <div class="row">
                                 <div class="col-lg-12">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                      <thead>
+                                    <table class="table table-striped table-dark table-bordered">
+                                      <thead class="thead-dark">
                                         <tr>
                                           <th scope="col" width="3">#</th>
                                           <th scope="col" width="10">Title</th>
@@ -55,7 +54,7 @@
                                           <th scope="row">2</th>
                                           <td>Mark</td>
                                           <td>Otto</td>
-                                          <td>@mdo</td>
+                                          <td><a href="">Source</a></td>
                                           <td>Mark</td>
                                           <td>Otto</td>
                                           <td>@mdo</td>
@@ -68,7 +67,7 @@
                                           <th scope="row">3</th>
                                           <td>Mark</td>
                                           <td>Otto</td>
-                                          <td>@mdo</td>
+                                          <td><a href="">Source</a></td>
                                           <td>Mark</td>
                                           <td>Otto</td>
                                           <td>@mdo</td>
@@ -79,7 +78,7 @@
                                         </tr>
                                       </tbody>
                                     </table>
-                                </div>
+
                                 </div>
                             </div>
                         </div><!-- end page-wrapper -->

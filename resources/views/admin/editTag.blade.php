@@ -3,7 +3,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                        <h2><i class="fa fa-list-alt bg-orange"></i> Add Category <small class="hidden-xs-down hidden-sm-down"></small></h2>
+                        <h2><i class="fa fa-list-alt bg-orange"></i>Edit Tag <small class="hidden-xs-down hidden-sm-down"></small></h2>
                     </div><!-- end col -->
 
                 </div><!-- end row -->
@@ -17,10 +17,10 @@
                         <div class="page-wrapper">
                             <div class="row">
                                 <div class="col-lg-7">
-                                @if (session('addCatSucMsg'))
+                                @if (session('editTagSucMsg'))
 
                                 <div class="alert alert-success" role="alert">
-                                  {{ session('addCatSucMsg') }}
+                                  {{ session('editTagSucMsg') }}
                                 </div>
 
                                 @endif
@@ -31,10 +31,10 @@
                                 </div>
                                 @endforeach
                                 @endif
-                                    <form class="form-wrapper" action="{{ route('addCategoryData') }}" method="POST">
+                                    <form class="form-wrapper" action="{{ route('updateTag',$tag->id ) }}" method="POST">
                                         @csrf
-                                        <input type="text" class="form-control" name="category" placeholder="Category">
-                                        <button type="submit" class="btn btn-primary">Add <i class="fa fa-plus"></i></button>
+                                        <input type="text" class="form-control" name="tag" value="{{ $tag->tag }}" placeholder="Tag">
+                                        <button type="submit" class="btn btn-primary">Edit <i class="fa fa-plus"></i></button>
                                     </form>
                                 </div>
                             </div>

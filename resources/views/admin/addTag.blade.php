@@ -17,9 +17,23 @@
                         <div class="page-wrapper">
                             <div class="row">
                                 <div class="col-lg-7">
-                                    <form class="form-wrapper">
-                                        <input type="text" class="form-control" name="tag" placeholder="Tag">
+                                @if (session('addTagSucMsg'))
 
+                                <div class="alert alert-success" role="alert">
+                                  {{ session('addTagSucMsg') }}
+                                </div>
+
+                                @endif
+                                @if($errors->any())
+                                @foreach ($errors->all() as $error)
+                                <div class="alert alert-danger" role="alert">
+                                  {{ $error }}
+                                </div>
+                                @endforeach
+                                @endif
+                                    <form class="form-wrapper" action="{{ route('addTagData') }}" method="POST">
+                                        @csrf
+                                        <input type="text" class="form-control" name="tag" placeholder="Tag">
                                         <button type="submit" class="btn btn-primary">Add <i class="fa fa-plus"></i></button>
                                     </form>
                                 </div>
