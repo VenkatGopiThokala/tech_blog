@@ -19,25 +19,29 @@ Route::get('/test', function () {
    return view('main');
 });
 
-
-
-Route::get('dashboard', function () {
-    return 'welcome to dashboard!';
-});
-
-Route::any('/', function()
-{
-    return 'Hello World';
-});
-
-
-
-Route::view('/', 'test');
 Route::get('/', 'App\Http\Controllers\ArticlesController@index' );
+
 Route::view('/contact', 'contact');
-Route::get('/article', function () {
-    return "Article number is ";
-});
-Route::get('/article/{id}', function ($id) {
-    return "Article number is ". $id;
-});
+
+Route::get('/admin', 'App\Http\Controllers\AdminController@index' );
+
+Route::get('/admin/addCategory', 'App\Http\Controllers\AdminController@addCategory')->name('addCategory');
+Route::post('/admin/addCategory', 'App\Http\Controllers\AdminController@addCategoryData')->name('addCategoryData');
+Route::get('/admin/editCategory/{id}', 'App\Http\Controllers\AdminController@editCategory')->name('editCategory');
+Route::post('/admin/updateCategory/{id}', 'App\Http\Controllers\AdminController@updateCategory')->name('updateCategory');
+Route::delete('/admin/deleteCategory/{id}', 'App\Http\Controllers\AdminController@deleteCategory')->name('deleteCategory');
+Route::get('/admin/viewCategory', 'App\Http\Controllers\AdminController@viewCategory')->name('viewCategory');
+
+Route::get('/admin/addTag', 'App\Http\Controllers\AdminController@addTag')->name('addTag');
+Route::post('/admin/addTag', 'App\Http\Controllers\AdminController@addTagData')->name('addTagData');
+Route::get('/admin/editTag/{id}', 'App\Http\Controllers\AdminController@editTag')->name('editTag');
+Route::post('/admin/updateTag/{id}', 'App\Http\Controllers\AdminController@updateTag')->name('updateTag');
+Route::delete('/admin/deleteTag/{id}', 'App\Http\Controllers\AdminController@deleteTag')->name('deleteTag');
+Route::get('/admin/viewTag', 'App\Http\Controllers\AdminController@viewTag')->name('viewTag');
+
+Route::get('/admin/addArticle', 'App\Http\Controllers\AdminController@addArticle')->name('addArticle');
+Route::post('/admin/addArticle', 'App\Http\Controllers\AdminController@addArticleData')->name('addArticleData');
+Route::get('/admin/editArticle/{id}', 'App\Http\Controllers\AdminController@editArticle')->name('editArticle');
+Route::post('/admin/updateArticle/{id}', 'App\Http\Controllers\AdminController@updateArticle')->name('updateArticle');
+Route::delete('/admin/deleteArticle/{id}', 'App\Http\Controllers\AdminController@deleteArticle')->name('deleteArticle');
+Route::get('/admin/viewArticle', 'App\Http\Controllers\AdminController@viewArticle')->name('viewArticle');

@@ -39,11 +39,12 @@
     <!-- Version Tech CSS for this template -->
     <link href="{{ asset('resources/assets/css/version/tech.css') }}" rel="stylesheet">
 
-
+    <script type="text/javascript" src="{{ asset('resources/assets/ckeditor/ckeditor.js') }}"></script>
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 
 </head>
 <body>
@@ -430,16 +431,22 @@
                                     <a class="nav-link" href="{{ url('/contact') }}">Contact Us</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('/contact') }}">Add category</a>
+                                    <a class="nav-link" href="{{ url('/admin/addCategory') }}">Add category</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('/contact') }}">View category</a>
+                                    <a class="nav-link" href="{{ url('/admin/viewCategory') }}">View category</a>
+                                </li>
+                                 <li class="nav-item">
+                                     <a class="nav-link" href="{{ url('/admin/addTag') }}">Add Tag</a>
+                                 </li>
+                                 <li class="nav-item">
+                                     <a class="nav-link" href="{{ url('/admin/viewTag') }}">View Tag</a>
+                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/admin/addArticle') }}">Add article</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('/contact') }}">Add article</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('/contact') }}">View article</a>
+                                    <a class="nav-link" href="{{ url('/admin/viewArticle') }}">View article</a>
                                 </li>
 
                             </ul>

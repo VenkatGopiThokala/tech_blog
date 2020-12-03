@@ -1,0 +1,6 @@
+php artisan make:controller contollerName                   'With our crud functions'
+php artisan make:controller contollerName --resource        'includes crud functions'
+php artisan make:model modelName -m                         'Creates models'
+php artisan migrate                                         'Creates tables in DB'
+php artisan make:controller controllerName --resource --model=modelName
+sudo chmod -R 775 storage
