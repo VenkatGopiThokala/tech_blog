@@ -18,23 +18,21 @@ use App\Http\Controllers;
 Route::get('/test', function () {
    return view('main');
 });
-
-
-
-Route::get('dashboard', function () {
-    return 'welcome to dashboard!';
-});
-
-Route::any('/', function()
-{
-    return 'Hello World';
-});
-
-
-
-Route::view('/', 'test');
 Route::get('/', 'App\Http\Controllers\ArticlesController@index' );
+Route::get('/admin', 'App\Http\Controllers\AdminController@index' );
+Route::get('/admin/addCategory', 'App\Http\Controllers\AdminController@addCategory' );
+Route::get('/admin/addTag', 'App\Http\Controllers\AdminController@addTag' );
+Route::get('/admin/viewTag', 'App\Http\Controllers\AdminController@viewTag' );
+Route::get('/admin/viewCategory', 'App\Http\Controllers\AdminController@viewCategory' );
+Route::get('/admin/addArticle', 'App\Http\Controllers\AdminController@addArticle' );
+Route::get('/admin/viewArticle', 'App\Http\Controllers\AdminController@viewArticle' );
+
+
+
 Route::view('/contact', 'contact');
+
+
+
 Route::get('/article', function () {
     return "Article number is ";
 });
