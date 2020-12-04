@@ -22,25 +22,28 @@ class mainController extends Controller
         return view('article', compact('articles', 'article'));
 
     }
+
     public function showGadgets()
-        {
-            $articles = Articles::all();
+    {
+        $articles = Articles::all();
 
-            return view('gadgets', compact('articles'));
+        return view('gadgets', compact('articles'));
 
-        }
+    }
+
     public function showVideos()
-        {
-            $articles = Articles::all();
+    {
+        $articles = Articles::all();
 
-            return view('videos', compact('articles'));
+        return view('videos', compact('articles'));
 
-        }
+    }
+
     public function showReviews()
-        {
-            $articles = Articles::all();
+    {
+        $articles = Articles::all();
 
-            return view('reviews', compact('articles'));
+        return view('reviews', compact('articles'));
 
-        }
+    }
 }

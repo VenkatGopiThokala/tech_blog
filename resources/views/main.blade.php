@@ -80,14 +80,18 @@
                                 </div><!-- end col -->
 
                                 <div class="blog-meta big-meta col-md-8">
-                                    <h3><a href="{{ route('showArticle', $article->id) }}" title="">{{ $article->title }}</a></h3>
+                                    <h3><a href="{{ route('showArticle', $article->id) }}"
+                                           title="">{{ $article->title }}</a></h3>
                                     <p>{{ $article->content }}</p>
-                                    <small class="firstsmall"><a class="bg-orange" href="{{ route('showArticle', $article->id) }}"
+                                    <small class="firstsmall"><a class="bg-orange"
+                                                                 href="{{ route('showArticle', $article->id) }}"
                                                                  title="">{{ $article->type }}</a></small>
                                     <small><a href="{{ route('showArticle', $article->id) }}"
                                               title="">{{ $article->published_date }}</a></small>
-                                    <small><a href="{{ route('showArticle', $article->id) }}" title="">by {{ $article->author }}</a></small>
-                                    <small><a href="{{ route('showArticle', $article->id) }}" title=""><i class="fa fa-eye"></i>
+                                    <small><a href="{{ route('showArticle', $article->id) }}"
+                                              title="">by {{ $article->author }}</a></small>
+                                    <small><a href="{{ route('showArticle', $article->id) }}" title=""><i
+                                                class="fa fa-eye"></i>
                                             1114</a></small>
                                 </div><!-- end meta -->
                             </div><!-- end blog-box -->
