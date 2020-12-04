@@ -15,15 +15,16 @@ use App\Http\Controllers;
 |
 */
 
-Route::get('/test', function () {
-   return view('main');
-});
 
-Route::get('/', 'App\Http\Controllers\ArticlesController@index' );
+Route::get('/test', 'App\Http\Controllers\mainController@index');
+Route::get('/article/{id}', 'App\Http\Controllers\mainController@showArticle')->name('showArticle');
+Route::get('/gadgets', 'App\Http\Controllers\mainController@showGadgets')->name('showGadgets');
+Route::get('/videos', 'App\Http\Controllers\mainController@showVideos')->name('showVideos');
+Route::get('/reviews', 'App\Http\Controllers\mainController@showReviews')->name('showReviews');
 
 Route::view('/contact', 'contact');
 
-Route::get('/admin', 'App\Http\Controllers\AdminController@index' );
+Route::get('/admin', 'App\Http\Controllers\AdminController@index');
 
 Route::get('/admin/addCategory', 'App\Http\Controllers\AdminController@addCategory')->name('addCategory');
 Route::post('/admin/addCategory', 'App\Http\Controllers\AdminController@addCategoryData')->name('addCategoryData');
