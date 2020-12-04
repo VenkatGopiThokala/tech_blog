@@ -49,7 +49,7 @@
                                           <td>{{ $article->category }}</td>
                                           <td>{{ $article->tag_1 }} &nbsp; {{ $article->tag_2 }}&nbsp; {{ $article->tag_3 }}&nbsp; {{ $article->tag_4 }}</td>
                                           <td>{{ $article->type }}</td>
-                                          <td>{{ $article->image }}</td>
+                                          <td><img src="../storage/app/{{ $article->image }}" width="100px" height="100px"></td>
                                           <td>{{ $article->content }}<td>
                                           <a href="{{ route('editArticle', $article->id) }}"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;&nbsp;
                                           <a href="#">

@@ -110,13 +110,9 @@ class AdminController extends Controller
                    'source' => 'required',
                    'published_date' => 'required',
                    'category' => 'required',
-                   'tag_1' => 'required',
-                   'tag_2' => 'required',
-                   'tag_3' => 'required',
-                   'tag_4' => 'required',
                    'type' => 'required',
-                   'image' => 'required',
-                   'content' => 'required'
+                   'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+                   'article' => 'required'
                ]);
            $article = new Articles;
            $article->title = $request->title;
@@ -129,8 +125,8 @@ class AdminController extends Controller
            $article->tag_3 = $request->tag_3;
            $article->tag_4 = $request->tag_4;
            $article->type = $request->type;
-           $article->image = $request->image;
-           $article->content = $request->content;
+           $article->content = $request->article;
+           $article->image = $request->file('image')->store('public/images');
            $article->save();
            return redirect(route('addArticle'))->with('addArtSucMsg','Article added successfully');
        }
@@ -153,13 +149,8 @@ class AdminController extends Controller
                   'source' => 'required',
                   'published_date' => 'required',
                   'category' => 'required',
-                  'tag_1' => 'required',
-                  'tag_2' => 'required',
-                  'tag_3' => 'required',
-                  'tag_4' => 'required',
                   'type' => 'required',
-                  'image' => 'required',
-                  'content' => 'required'
+                  'article' => 'required'
               ]);
            $article = Articles::find($id);
            $article->title = $request->title;
@@ -172,8 +163,11 @@ class AdminController extends Controller
            $article->tag_3 = $request->tag_3;
            $article->tag_4 = $request->tag_4;
            $article->type = $request->type;
-           $article->image = $request->image;
-           $article->content = $request->content;
+           $article->content = $request->article;
+           if ($request->hasFile('image')) {
+           $article->image = $request->file('image')->store('public/images');
+           }
+
            $article->save();
            return redirect(route('editArticle', $id))->with('editArtSucMsg','Article edited successfully');
        }

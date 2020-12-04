@@ -29,7 +29,7 @@
                                         </div>
                                     @endforeach
                                 @endif
-                                    <form class="form-wrapper" action="{{ route('updateArticle', $article->id) }}" method="POST">
+                                    <form class="form-wrapper" action="{{ route('updateArticle', $article->id) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                         <input type="text" class="form-control" placeholder="Title" name="title" value="{{ $article->title }}">
                                         <input type="text" class="form-control" placeholder="Author" name="author" value="{{ $article->author }}">
@@ -72,7 +72,8 @@
                                             <option value="2">cat1</option>
                                         </select>
                                         <input type="file" class="form-control" placeholder="Select image" name="image">
-                                        <textarea class="ckeditor" cols="200" id="editor1" name="content" rows="60">{{ $article->content }}</textarea>
+                                        <img src="../../storage/app/{{ $article->image }}" width="100px" height="100px">
+                                        <textarea class="ckeditor" cols="200" id="editor1" name="article" rows="60">{{ $article->content }}</textarea>
 
                                         <button type="submit" class="btn btn-primary">Edit <i class="fa fa-pencil"></i></button>
                                     </form>
