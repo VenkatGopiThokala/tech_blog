@@ -18,9 +18,10 @@ use App\Http\Controllers;
 
 Route::get('/test', 'App\Http\Controllers\mainController@index');
 Route::get('/article/{id}', 'App\Http\Controllers\mainController@showArticle')->name('showArticle');
-Route::get('/article', function () {
-    return view('article');
-});
+Route::get('/gadgets', 'App\Http\Controllers\mainController@showGadgets')->name('showGadgets');
+Route::get('/videos', 'App\Http\Controllers\mainController@showVideos')->name('showVideos');
+Route::get('/reviews', 'App\Http\Controllers\mainController@showReviews')->name('showReviews');
+
 Route::view('/contact', 'contact');
 
 Route::get('/admin', 'App\Http\Controllers\AdminController@index');
