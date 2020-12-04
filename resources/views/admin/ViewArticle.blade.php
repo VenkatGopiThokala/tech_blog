@@ -17,6 +17,11 @@
                         <div class="page-wrapper">
                             <div class="row">
                                 <div class="col-lg-12">
+                                 @if (session('deleteArtSucMsg'))
+                                     <div class="alert alert-success" role="alert">
+                                       {{ session('deleteArtSucMsg') }}
+                                     </div>
+                                 @endif
                                     <table class="table table-striped table-dark table-bordered">
                                       <thead class="thead-dark">
                                         <tr>
@@ -29,56 +34,42 @@
                                           <th scope="col" width="10">Tags</th>
                                           <th scope="col" width="10">Type</th>
                                           <th scope="col" width="10">Image</th>
-                                          <th scope="col" width="40">Article</th>
+                                          <th scope="col" width="40">Content</th>
                                           <th scope="col" width="10">Action</th>
                                         </tr>
                                       </thead>
                                       <tbody>
+                                      @foreach($articles as $article)
                                         <tr>
-                                          <th scope="row">1</th>
-                                          <td>Mark</td>
-                                          <td>Otto</td>
-                                          <td><a href="">Source</a></td>
-                                          <td>Mark</td>
-                                          <td>Otto</td>
-                                          <td>@mdo</td>
-                                          <td>Mark</td>
-                                          <td>Otto</td>
-                                          <td><p>
-                                              	Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
-</td>
-
-                                          <td><a href="#"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;&nbsp;<a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                          <th scope="row"> {{ $article->id }} </th>
+                                          <td>{{ $article->title }}</td>
+                                          <td>{{ $article->author }}</td>
+                                          <td><a href="{{ $article->source }}" target="_blank">Source</a></td>
+                                          <td>{{ $article->published_date }}</td>
+                                          <td>{{ $article->category }}</td>
+                                          <td>{{ $article->tag_1 }} &nbsp; {{ $article->tag_2 }}&nbsp; {{ $article->tag_3 }}&nbsp; {{ $article->tag_4 }}</td>
+                                          <td>{{ $article->type }}</td>
+                                          <td>{{ $article->image }}</td>
+                                          <td>{{ $article->content }}<td>
+                                          <a href="{{ route('editArticle', $article->id) }}"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;&nbsp;
+                                          <a href="#">
+                                            <form method="POST" id="delete-{{ $article->id }}" action="{{ route('deleteArticle', $article->id) }}" style="display-none;">
+                                                @csrf
+                                                {{ method_field('delete') }}
+                                            </form>
+                                            <button onclick="
+                                                if (confirm('Are you sure to delete this article?')) {
+                                                    event.preventDefault();
+                                                    document.getElementById('delete-{{ $article->id }}').submit();}
+                                                else {
+                                                    event.preventDefault();
+                                                }
+                                         "><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                                         </tr>
-                                        <tr>
-                                          <th scope="row">2</th>
-                                          <td>Mark</td>
-                                          <td>Otto</td>
-                                          <td><a href="">Source</a></td>
-                                          <td>Mark</td>
-                                          <td>Otto</td>
-                                          <td>@mdo</td>
-                                          <td>Mark</td>
-                                          <td>Otto</td>
-                                          <td>@mdo</td>
-                                          <td><a href="#"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;&nbsp;<a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-                                        </tr>
-                                        <tr>
-                                          <th scope="row">3</th>
-                                          <td>Mark</td>
-                                          <td>Otto</td>
-                                          <td><a href="">Source</a></td>
-                                          <td>Mark</td>
-                                          <td>Otto</td>
-                                          <td>@mdo</td>
-                                          <td>Mark</td>
-                                          <td>Otto</td>
-                                          <td>@mdo</td>
-                                          <td><a href="#"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;&nbsp;<a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-                                        </tr>
+                                        @endforeach
                                       </tbody>
                                     </table>
-
+                                    {{ $articles->links() }}
                                 </div>
                             </div>
                         </div><!-- end page-wrapper -->
