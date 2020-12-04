@@ -319,9 +319,11 @@ a:focus {
     .first-section .blog-meta h4 {
         font-size: 16px;
     }
+
     .shadow-desc {
         padding: 1rem 0.5rem;
     }
+
     .last-slot,
     .second-slot,
     .first-slot {
