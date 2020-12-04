@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\Tags;
+use App\Models\Articles;
 
 class AdminController extends Controller
 {
@@ -100,9 +101,88 @@ class AdminController extends Controller
        {
            return view("admin.addArticle");
        }
+
+   public function addArticleData(Request $request)
+       {
+       $request->validate([
+                   'title' => 'required',
+                   'author' => 'required',
+                   'source' => 'required',
+                   'published_date' => 'required',
+                   'category' => 'required',
+                   'tag_1' => 'required',
+                   'tag_2' => 'required',
+                   'tag_3' => 'required',
+                   'tag_4' => 'required',
+                   'type' => 'required',
+                   'image' => 'required',
+                   'content' => 'required'
+               ]);
+           $article = new Articles;
+           $article->title = $request->title;
+           $article->author = $request->author;
+           $article->source = $request->source;
+           $article->published_date = $request->published_date;
+           $article->category = $request->category;
+           $article->tag_1 = $request->tag_1;
+           $article->tag_2 = $request->tag_2;
+           $article->tag_3 = $request->tag_3;
+           $article->tag_4 = $request->tag_4;
+           $article->type = $request->type;
+           $article->image = $request->image;
+           $article->content = $request->content;
+           $article->save();
+           return redirect(route('addArticle'))->with('addArtSucMsg','Article added successfully');
+       }
+
    public function viewArticle()
        {
-           return view("admin.viewArticle");
+           $articles = Articles::simplePaginate(3);
+           return view('admin.viewArticle',compact('articles'));
        }
+   public function editArticle($id)
+       {
+           $article = Articles::find($id);
+           return view('admin.editArticle',compact('article'));
+       }
+   public function updateArticle(Request $request, $id)
+       {
+           $request->validate([
+                  'title' => 'required',
+                  'author' => 'required',
+                  'source' => 'required',
+                  'published_date' => 'required',
+                  'category' => 'required',
+                  'tag_1' => 'required',
+                  'tag_2' => 'required',
+                  'tag_3' => 'required',
+                  'tag_4' => 'required',
+                  'type' => 'required',
+                  'image' => 'required',
+                  'content' => 'required'
+              ]);
+           $article = Articles::find($id);
+           $article->title = $request->title;
+           $article->author = $request->author;
+           $article->source = $request->source;
+           $article->published_date = $request->published_date;
+           $article->category = $request->category;
+           $article->tag_1 = $request->tag_1;
+           $article->tag_2 = $request->tag_2;
+           $article->tag_3 = $request->tag_3;
+           $article->tag_4 = $request->tag_4;
+           $article->type = $request->type;
+           $article->image = $request->image;
+           $article->content = $request->content;
+           $article->save();
+           return redirect(route('editArticle', $id))->with('editArtSucMsg','Article edited successfully');
+       }
+   public function deleteArticle($id)
+       {
+           $article = Articles::find($id)->delete();
+           return redirect(route('viewArticle'))->with('deleteArtSucMsg','Article deleted successfully');
+
+       }
+
 
 }
