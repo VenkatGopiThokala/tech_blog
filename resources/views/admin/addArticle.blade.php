@@ -62,10 +62,12 @@
                                         </select>
                                         <select name="type">
                                             <option value="">Select Type</option>
-                                            <option value="1">cat</option>
-                                            <option value="2">cat1</option>
-                                        </select>
-                                        <input type="file" class="form-control" placeholder="Select image" name="image">
+                                            <option value="Article">Article</option>
+                                            <option value="Video">Video</option>
+                                            <option value="Review">Review</option>
+                                            <option value="Gadget">Gadget</option>
+                                        </select><br><br>
+                                        <input type="file" class="form-control" title="Select image" name="image">
                                         <textarea class="ckeditor" cols="200" id="editor1" name="article" rows="60"></textarea>
 
                                         <button type="submit" class="btn btn-primary">Add <i class="fa fa-plus"></i></button>
@@ -81,19 +83,5 @@
 <br>
         <br>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+
 @include('includes.footer')

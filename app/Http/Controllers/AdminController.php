@@ -30,7 +30,7 @@ class AdminController extends Controller
 
    public function viewCategory()
        {
-           $categories = Categories::simplePaginate(3);
+           $categories = Categories::simplePaginate(10);
            return view('admin.viewCategory',compact('categories'));
        }
    public function editCategory($id)
@@ -72,7 +72,7 @@ class AdminController extends Controller
 
    public function viewTag()
        {
-           $tags = Tags::simplePaginate(3);
+           $tags = Tags::simplePaginate(10);
            return view('admin.viewTag',compact('tags'));
        }
    public function editTag($id)
@@ -133,7 +133,7 @@ class AdminController extends Controller
 
    public function viewArticle()
        {
-           $articles = Articles::simplePaginate(3);
+           $articles = Articles::simplePaginate(6);
            return view('admin.viewArticle',compact('articles'));
        }
    public function editArticle($id)
